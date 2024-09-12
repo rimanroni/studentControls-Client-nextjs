@@ -1,6 +1,11 @@
-import React from 'react';
+ "use client"
+
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const StudentAddpage = () => {
+    const [data, setData] = useState([]);
+
     const handleForm = (e) =>{
         e.preventDefault();
         const form = e.target;
@@ -16,6 +21,9 @@ const StudentAddpage = () => {
         const student = {name, nid, father, mother, reg, roll, phone, email, photo};
     
      }
+     useEffect(()=>{
+        axios.get(`http://localhost:5000/student/`)
+     },[])
       
     return (
         <div className='flex flex-col justify-center items-center mx-8    bg-blue-600 mt-5 rounded-md'>
@@ -43,7 +51,7 @@ const StudentAddpage = () => {
                     
                 </div>
                <div className='flex justify-center items-center'>
-               <button className='bg-lime-400 hover:bg-blue-700 hover:text-white duration-300 rounded-md px-8 py-2 font-bold text-blue-600'>Update Student</button>
+               <button onClick={()=>alert('development comming soon')} className='bg-lime-400 hover:bg-blue-700 hover:text-white duration-300 rounded-md px-8 py-2 font-bold text-blue-600'>Update Student</button>
                </div>
             </form>
             </div>
